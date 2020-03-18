@@ -1,0 +1,73 @@
+<!DOCTYPE html> <!-- documento html5 -->
+<html>
+<head>
+   <title> Random Users </title>
+    <link rel="icon" href="icona.ico" />
+   <script type="text/javascript" src="jQuery.js">  </script>
+   <script type="text/javascript" src="index.js">  </script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="icon" href="randomuser.png" type="image/icon type">
+</head>
+  
+<body>
+  <header>
+      <h1> RANDOM USER GENERATOR </h1>
+      <p>A free, <a href="https://github.com/RandomAPI/Randomuser.me-Node" target="_blank" style="color: #85BA47">open-source</a> API for generating random user data. Like Lorem Ipsum, but for people.</p>
+  </header>
+    <input type="button" id="btnSx" value="<" class="frecce" style="display: inline-block; margin-left: 20%">
+    <input type="button" id="btnDx" value=">" class="frecce" style="margin-left: 50%">
+  <div class="frame card_offset" style="height: 1000px">
+      <div class="card">
+          
+          <div class="details">
+              
+              <div class="user_photo horizontal_center" id="user_photo">
+                  <a id="new"class="refresh"> New</a>
+                  <img>
+              </div>
+              
+              <p id="user_title"> Hi, My name is </p>
+              <p id="user_value"></p>
+          </div>
+          
+          <ul class="values_list horizontal_center" id="values_list">
+              <li data-title="Hi, My name is" data-value="" data-label="name" class="active"></li>
+              <li data-title="My email address is" data-value="" data-label="email" data-caps="false"></li>
+              <li data-title="My birthday is" data-value="" data-label="birthday"></li>
+              <li data-title="My address is" data-value="" data-label="location"></li>
+              <li data-title="My phone number is" data-value="" data-label="phone"></li>
+              <li data-title="My password is" data-value="" data-label="pass"></li>
+          </ul>
+      </div>
+      <br><br><br>
+      <div>
+          <label style="font-family: Ubuntu, sans-serif;font-weight: 500; margin: 33%; color: #85BA47; font-size: 16pt" for="slider"> NUMERO DI PERSONE: </label><br>
+          <input type="range" min="1" max="30" value="1" id="slider" style="margin-left: 18%; margin-bottom: 4%"><br>
+          <span class="number" style="margin: 48%"> 1 </span>
+      </div>
+      <br><br><hr><br><br>
+      <div>
+          <span style="margin: 43%; color: #85BA47; font-size: 16pt"> SESSO: </span> <br><br>
+          <input id="#male" type="radio" name="sex" style="margin-left: 27%" gend="male">
+          <span> Uomo </span>
+          <input id="#female" type="radio" name="sex" style="margin-left: 6%" gend="female">
+          <span> Donna </span>
+          <input id="#all" type="radio" name="sex" style="margin-left: 5%" checked gend="all">
+          <span> Tutti </span>
+      </div>
+      <br><br><hr><br><br>
+      <div>
+          <span style="margin: 43%; color: #85BA47; font-size: 16pt"> NAZIONE: </span> <br><br>
+          <input type="checkbox" name="nations" value="US" style="margin-left: 26.5%"> US &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" name="nations" value="BR"> BR &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" name="nations" value="IR"> IR &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" name="nations" value="DE"> DE &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="checkbox" name="nations" value="GB"> GB
+          
+      </div>
+      <input type="button" id="btnOk" value="GENERA" style="background-color: #85BA47; margin-left: 41.5%; margin-top: 8%; width: 120px; font-size: 16pt; height: 45px;
+                                                            line-height: 40px; border-radius: 25px">
+  </div>
+  
+</body>
+</html>
