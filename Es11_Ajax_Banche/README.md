@@ -1,4 +1,4 @@
-## Esercizio 11
+## Esercizio 11 banche
 
 Questo è un esercizio per una semplice gestione gestione di un sistema bancario; in questo esercizio è stata opportunamente
 divisa la parte client, lasciata nella cartella principale, dalla parte server, inserita in una cartella a parte.
