@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title>Get Stock Quotes</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="index.js" type="application/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <label for="symbols"> CHOOSE A COMPANY: </label>
+        <select id="symbols">
+            <option value="IBM"> IBM </option>
+            <option value="MSFT"> Microsoft </option>
+            <option value="SNE"> Sony </option>
+            <option value="BABA"> Alibaba </option>
+            <option value="XIACF"> Xiaomi  </option>
+        </select>
+    <div>
+        SEARCH A COMPANY: 
+        <input type="text" id="txtCompany">
+    </div>
+    <div id="wrapper">     
+        <div id="quote">
+            <table cellspacing="0" cellpadding="3">
+                <tr>
+                    <th>SYMBOL</th>
+                    <th>LAST TRADE</th>
+                    <th>LAST TRADE TIME</th>
+                    <th>CHANGE</th>
+                    <th>OPEN</th>
+                    <th>PREVIOUS CLOSE</th>
+                    <th>DAY'S LOW</th>
+                    <th>DAY'S HIGH</th>
+                    <th>VOLUME</th>
+                </tr>
+                <tr>
+                    <td id="symbol"></td>
+                    <td id="lastTrade"></td>
+                    <td id="lastTradeTime"></td>
+                    <td id="change"></td>
+                    <td id="open"></td>
+                    <td id="previousClose"></td>
+                    <td id="daysLow"></td>
+                    <td id="daysHigh"></td>
+                    <td id="volume"></td>
+                    
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br><br><br><br>
+    
+</body>
+
+</html>
