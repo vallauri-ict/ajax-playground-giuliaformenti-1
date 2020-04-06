@@ -8,17 +8,17 @@ I file presenti sono:
 - **index.css** che contiene gli stili applicati
 - **index.js** che contiene le istruzioni principali e in particolare:
     - il richiamo della procedura che riempie la tabella ogni volta che viene scelta un'azienda
-    '''javascript
+    ```javascript
     _select.on("change", function(){
         getGlobalQuotes(this.value);
     });
-    '''
+    ```
     - costruzione dell'url con il codice dell'azienda scelta
-    '''javascript
+    ```javascript
     let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=Y7N76EITT7V7O285";
-    '''
+    ```
     - costruzione della tabella dal json che contiene i dati dell'azienda scelta
-    '''javascript
+    ```javascript
     $.getJSON(url, function(data){
         $("#symbol").text(data["Global Quote"]["01. symbol"]);
         let globalQuoteData = data["Global Quote"];
@@ -31,6 +31,6 @@ I file presenti sono:
         $("#daysHigh").text(globalQuoteData["03. high"]);
         $("#volume").text(globalQuoteData["06. volume"]);
     });
-    '''
+    ```
     
 ###### Creato da Giulia Formenti 4B INF
