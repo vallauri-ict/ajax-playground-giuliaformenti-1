@@ -1,5 +1,6 @@
 let _table = $("table");
 $(document).ready(function(){
+    let _selectSector = $("#selectSector");
     let _select = $("#symbols").prop("selectedIndex", "-1");
     _select.on("change", function(){
         getGlobalQuotes(this.value);
@@ -11,6 +12,65 @@ $(document).ready(function(){
             getSymbolSeatch(_txt.val());
         }
     });*/
+    
+    $.getJSON("http://localhost:3000/sector", function(data){
+        for(let key in data)
+        {
+            if(key != "Meta Data")
+            {
+                $("<option>", {
+                    text: key,
+                    value: key,
+                }).appendTo(_selectSector);
+            }
+        }
+        _selectSector.prop("selectedIndex", "-1")
+    });
+    
+    _selectSector.on("change", function(){
+        let sector = this.value;
+        let values = [];
+        let labels = [];
+        let l = 0;
+        
+        //Creazione chart
+        let ctx = document.getElementById('myChart').getContext('2d');
+        $.getJSON("http://localhost:3000/chart", function(data){
+            
+            $.getJSON("http://localhost:3000/sector",function(dataSector){
+			for(let key in dataSector[sector])
+            {
+                labels[l++] = key;
+                //alert(labels[l]);
+                //alert(key);
+                //labels.push(key);
+            }
+            
+                
+			});
+			data["data"]["labels"] = labels;
+            l = 0;
+            $.getJSON("http://localhost:3000/sector", function(dataSector){
+                for(let val in dataSector[sector][labels[l++]])
+                {
+                    //values[v++] = val;
+                    //alert(val);
+                    values.push(val);
+                    
+                }
+            });
+            data["data"]["datasets"]["data"][0] = values;
+            /*for(let val in data["data"]["datasets"])
+            {
+                console.log(val);
+            }*/
+            let myChart = new Chart(ctx,data);
+        });
+        
+        
+    });
+    
+    
 });
 
 function getGlobalQuotes(symbol){

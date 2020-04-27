@@ -5,6 +5,7 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="index.js" type="application/javascript"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
 <body>
@@ -43,14 +44,15 @@
                     <td id="previousClose"></td>
                     <td id="daysLow"></td>
                     <td id="daysHigh"></td>
-                    <td id="volume"></td>
-                    
+                    <td id="volume"></td> 
                 </tr>
             </table>
         </div>
-    </div>
-    <br><br><br><br>
-    
+        <div>
+            <p>Scegli il settore da visualizzare nel grafico.</p>
+            <select class="form-control" id="selectSector"></select>
+        </div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>   
 </body>
-
 </html>

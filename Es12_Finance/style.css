@@ -38,10 +38,13 @@ td {
 label{
     margin-left: 320px;
 }
-select{
+#symbols{
     margin-top: 20px;
     margin-right: 250px;
 }
 div:nth-of-type(1){
     display: inline-block;
+}
+canvas{
+    border: 1px solid black;
 }
