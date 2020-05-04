@@ -1,5 +1,16 @@
 let _table = $("table");
 $(document).ready(function(){
+    //Download Chart Image
+    document.getElementById("download").addEventListener('click', function(){
+        /*Get image of canvas element*/
+        var url_base64jp = document.getElementById("lineChart").toDataURL("image/jpg");
+        /*get download button (tag: <a></a>) */
+        var a =  document.getElementById("download");
+        /*insert chart image url to download button (tag: <a></a>) */
+        a.href = url_base64jp;
+    });
+    
+    
     let _selectSector = $("#selectSector");
     let _select = $("#symbols").prop("selectedIndex", "-1");
     _select.on("change", function(){
@@ -31,25 +42,61 @@ $(document).ready(function(){
         let sector = this.value;
         let values = [];
         let labels = [];
+        let bgColors = ["rgba(255, 99, 132, 0.5)",
+          "rgba(54, 162, 235, 0.5)",
+          "rgba(255, 206, 86, 0.5)",
+          "rgba(75, 192, 192, 0.5)",
+          "rgba(153, 102, 255, 0.5)",
+          "rgba(255, 159, 64, 0.5)","rgba(255, 99, 132, 0.5)",
+          "rgba(54, 162, 235, 0.5)",
+          "rgba(255, 206, 86, 0.5)",
+          "rgba(75, 192, 192, 0.5)",
+          "rgba(153, 102, 255, 0.5)"];
+        let bdColors = ["rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)","rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)"];
         let l = 0;
+        let v = 0;
         
         //Creazione chart
         let ctx = document.getElementById('myChart').getContext('2d');
         $.getJSON("http://localhost:3000/chart", function(data){
-            
             $.getJSON("http://localhost:3000/sector",function(dataSector){
-			for(let key in dataSector[sector])
-            {
-                labels[l++] = key;
-                //alert(labels[l]);
-                //alert(key);
-                //labels.push(key);
-            }
-            
+                for(let key in dataSector[sector])
+                {
+                    //alert(l + ") KEY: " + key);
+                    labels[l] = key;
+                    //alert(labels[l]);
+                    l++;
+                    values[v] = dataSector[sector][key].replace("%", "");
+                    v++;
+                    //alert(labels[l]);
+                    //alert(key);
+                    //labels.push(key);
+                }
                 
-			});
-			data["data"]["labels"] = labels;
-            l = 0;
+                l--;
+                v--;
+			}).done(function(){
+                data["data"]["labels"] = labels;
+                data["data"]["datasets"][0]["data"] = values;
+                data["data"]["datasets"][0]["backgroundColor"] = bgColors;
+                data["data"]["datasets"][0]["borderColor"] = bdColors;
+                let myChart = new Chart(ctx,data);
+                //alert(data["data"]["labels"]);
+                //alert(data["data"]["datasets"][0]["data"]);
+            });
+            //alert(labels);
+			//data["data"]["labels"] = labels;
+            //alert(data["data"]["labels"]);
+            /*l = 0;
             $.getJSON("http://localhost:3000/sector", function(dataSector){
                 for(let val in dataSector[sector][labels[l++]])
                 {
@@ -64,7 +111,7 @@ $(document).ready(function(){
             {
                 console.log(val);
             }*/
-            let myChart = new Chart(ctx,data);
+            //let myChart = new Chart(ctx,data);
         });
         
         
