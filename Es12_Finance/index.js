@@ -2,14 +2,22 @@ let _table = $("table");
 $(document).ready(function(){
     //Download Chart Image
     document.getElementById("download").addEventListener('click', function(){
-        /*Get image of canvas element*/
-        var url_base64jp = document.getElementById("myChart").toDataURL("image/jpg");
-        /*get download button (tag: <a></a>) */
-        var a =  document.getElementById("download");
-        /*insert chart image url to download button (tag: <a></a>) */
+        let url_base64jp = document.getElementById("myChart").toDataURL("image/jpg");
+        let a =  document.getElementById("download");
         a.href = url_base64jp;
-    });
-    
+		
+		setTimeout(function(){
+			let res = prompt("Vuoi salvare su Google Drive?");
+			if(res != null)
+			{
+				let clientId = "880324532459-2vbntvc7fv5ovtcgm1m5rbc5mektelmn.apps.googleusercontent.com";
+				let redirect_uri = "http://localhost/Es12_Finance/upload.html";
+				let scope = "https://www.googleapis.com/auth/drive";
+				let url = "";
+				signIn(clientId,redirect_uri,scope,url);
+			}
+		}, 2000);
+    }); 
     
     let _selectSector = $("#selectSector");
     let _select = $("#symbols").prop("selectedIndex", "-1");
@@ -119,6 +127,15 @@ $(document).ready(function(){
     
     
 });
+
+function signIn(clientId,redirect_uri,scope,url){
+        // the actual url to which the user is redirected to 
+        url = "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri="+redirect_uri
+        +"&prompt=consent&response_type=code&client_id="+clientId+"&scope="+scope
+        +"&access_type=offline";
+        window.location = url;
+		
+     }
 
 function getGlobalQuotes(symbol){
     let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=Y7N76EITT7V7O285";
