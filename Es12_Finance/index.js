@@ -138,25 +138,7 @@ $(document).ready(function(){
                 //alert(data["data"]["labels"]);
                 //alert(data["data"]["datasets"][0]["data"]);
             });
-            //alert(labels);
-			//data["data"]["labels"] = labels;
-            //alert(data["data"]["labels"]);
-            /*l = 0;
-            $.getJSON("http://localhost:3000/sector", function(dataSector){
-                for(let val in dataSector[sector][labels[l++]])
-                {
-                    //values[v++] = val;
-                    //alert(val);
-                    values.push(val);
-                    
-                }
-            });
-            data["data"]["datasets"]["data"][0] = values;
-            /*for(let val in data["data"]["datasets"])
-            {
-                console.log(val);
-            }*/
-            //let myChart = new Chart(ctx,data);
+            
         });
         
         
@@ -203,34 +185,29 @@ function getSymbolSearch(symbol){
         console.log(data);
         //let _bestMat = data["bestMatches"];
         let ln = 5 - nCalls;
+        _tbody = $("<tbody id='myTBody'>").appendTo(_table);
+        isPresent = true;
         for(let i = 0; i < ln; i++)
         {
             //console.log(data["bestMatches"][i]["1. symbol"]);
-            _tbody = $("<tbody id='myTBody'>").appendTo(_table);
-            isPresent = true;
+            
             CreateRows(i);
             let symb = data["bestMatches"][i]["1. symbol"];
             getGlobalQuotes(symb, i);
             nCalls++;
-            //let _tr = $("<tr>").appendTo(_table);
-            //$("<td>").text(data["bestMatches"][i]["1. symbol"]).appendTo(_tr);
-            //console.log(data["bestMatches"][i]["1. symbol"]);
-            //$("<td>").text(data["bestMatches"][i]["2. name"]).appendTo(_tr);
-            //console.log(data["bestMatches"][i]["2. name"]);
         }
     });
 }
 
 function CreateRows(n) {
-    let tr=$("<tr>").addClass("deletableRows");
-    $("<td>").prop("id", "symbol"+n).appendTo(tr);
-    $("<td>").prop("id", "lastTrade"+n).appendTo(tr);
-    $("<td>").prop("id", "lastTradeTime"+n).appendTo(tr);
-    $("<td>").prop("id", "change"+n).appendTo(tr);
-    $("<td>").prop("id", "open"+n).appendTo(tr);
-    $("<td>").prop("id", "previousClose"+n).appendTo(tr);
-    $("<td>").prop("id", "daysLow"+n).appendTo(tr);
-    $("<td>").prop("id", "daysHigh"+n).appendTo(tr);
-    $("<td>").prop("id", "volume"+n).appendTo(tr);
-    tr.appendTo(_tbody);
+    let _tr = $("<tr>").appendTo(_tbody);
+    $("<td id = symbol" + n + ">").appendTo(_tr);
+    $("<td id = lastTrade" + n + ">").appendTo(_tr);
+    $("<td id = lastTradeTime" + n + ">").appendTo(_tr);
+    $("<td id = change" + n + ">").appendTo(_tr);
+    $("<td id = open" + n + ">").appendTo(_tr);
+    $("<td id = previousClose" + n + ">").appendTo(_tr);
+    $("<td id = daysLow" + n + ">").appendTo(_tr);
+    $("<td id = daysHigh" + n + ">").appendTo(_tr);
+    $("<td id = volume" + n + ">").appendTo(_tr);
 }
