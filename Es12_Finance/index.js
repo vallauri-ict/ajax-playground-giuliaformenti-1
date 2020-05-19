@@ -3,7 +3,7 @@
 let _table;
 let _tbody;
 let isPresent;
-let nCalls = 0;
+let calls = 0;
 $(document).ready(function(){
     _table = $("#myTable");
     //let _tbody = $("#myTBody");
@@ -32,14 +32,14 @@ $(document).ready(function(){
     let _selectSector = $("#selectSector");
     let _select = $("#symbols").prop("selectedIndex", "-1");
     _select.on("change", function(){
-        if(nCalls <= 5)
+        if(calls <= 5)
         {
             _tbody = $("<tbody id='myTBody'>").appendTo(_table);
             isPresent = true;
             createRows(0);
             //_table.css("border-color", "red");
             getGlobalQuotes(this.value, 0);
-            nCalls++;
+            calls++;
         }
         else
         {
@@ -51,7 +51,7 @@ $(document).ready(function(){
     _txt.keyup(function(){
         if(_txt.val().length > 1)
         {
-            if(nCalls <= 5)
+            if(calls <= 5)
             {
                 if(isPresent)
                 {
@@ -145,7 +145,7 @@ $(document).ready(function(){
     });
     $("#grafico").show();
     setInterval(function(){
-        nCalls = 0;
+        calls = 0;
     }, 60000);
 });
 
@@ -184,7 +184,7 @@ function getSymbolSearch(symbol){
     $.getJSON(url, function(data){
         console.log(data);
         //let _bestMat = data["bestMatches"];
-        let ln = 5 - nCalls;
+        let ln = 5 - calls;
         _tbody = $("<tbody id='myTBody'>").appendTo(_table);
         isPresent = true;
         for(let i = 0; i < ln; i++)
@@ -194,7 +194,7 @@ function getSymbolSearch(symbol){
             createRows(i);
             let symb = data["bestMatches"][i]["1. symbol"];
             getGlobalQuotes(symb, i);
-            nCalls++;
+            calls++;
         }
     });
 }
