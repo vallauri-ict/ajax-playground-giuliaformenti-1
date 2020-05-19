@@ -3,7 +3,8 @@ $(document).ready(function(){
 
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
-    const redirect_uri = "http://localhost/Es12_Finance/upload.html" // replace with your redirect_uri;
+    //const redirect_uri = "http://localhost/Es12_Finance/upload.html" // replace with your redirect_uri;
+    const redirect_uri = "http://127.0.0.1/Es12_Finance/upload.html" // replace with your redirect_uri;
     const client_secret = "SuxJScxrZWPvY8fvpZX-Mz5H"; // replace with your client secret
     const scope = "https://www.googleapis.com/auth/drive";
     let access_token= "";
@@ -112,7 +113,7 @@ $(document).ready(function(){
 
     $("#upload").on("click", function (e) 
     {
-        let file = $("#files")[0].files[0];
+        let file = $("#inputGroupFile01")/*[0].files[0]*/;
         let upload = new Upload(file);
     
         // maby check size or type here with upload.getSize() and upload.getType()

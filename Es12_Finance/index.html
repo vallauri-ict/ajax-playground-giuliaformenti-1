@@ -5,11 +5,15 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="index.js" type="application/javascript"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"></script>-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body class="bg-secondary text-white">
+    <header>ALPHA VANTAGE</header>
     <label for="symbols"> CHOOSE A COMPANY: </label>
         <select id="symbols">
             <option value="IBM"> IBM </option>
@@ -22,21 +26,24 @@
         SEARCH A COMPANY: 
         <input type="text" id="txtCompany">
     </div>
-    <div id="wrapper">     
+    <div id="wrapper" class="bg-dark text-white">     
         <div id="quote">
-            <table cellspacing="0" cellpadding="3">
-                <tr>
-                    <th>SYMBOL</th>
-                    <th>LAST TRADE</th>
-                    <th>LAST TRADE TIME</th>
-                    <th>CHANGE</th>
-                    <th>OPEN</th>
-                    <th>PREVIOUS CLOSE</th>
-                    <th>DAY'S LOW</th>
-                    <th>DAY'S HIGH</th>
-                    <th>VOLUME</th>
-                </tr>
-                <tr>
+            <table id = "myTable" cellspacing="0" cellpadding="3" class="border border-white rounded">
+                <thead>
+                    <tr>
+                        <th>SYMBOL</th>
+                        <th>LAST TRADE</th>
+                        <th>LAST TRADE TIME</th>
+                        <th>CHANGE</th>
+                        <th>OPEN</th>
+                        <th>PREVIOUS CLOSE</th>
+                        <th>DAY'S LOW</th>
+                        <th>DAY'S HIGH</th>
+                        <th>VOLUME</th>
+                    </tr>
+                </thead>
+                
+               <!-- <tr>
                     <td id="symbol"></td>
                     <td id="lastTrade"></td>
                     <td id="lastTradeTime"></td>
@@ -46,18 +53,28 @@
                     <td id="daysLow"></td>
                     <td id="daysHigh"></td>
                     <td id="volume"></td> 
-                </tr>
+                </tr>-->
             </table>
         </div>
-        <div>
+        
+        
+        
+    </div>
+    
+    <br><br><br><br><br>
+        <div id = "grafico" class="bg-dark text-white">
+            <h3> GRAFICO </h3>
             <p>Scegli il settore da visualizzare nel grafico.</p>
-            <select class="form-control" id="selectSector"></select>
+            <select id="selectSector"></select>
+            
+            <br><br>
+            <canvas id="myChart" width="400" height="400"></canvas>
+            
+            <br>
+            <a id="download" download="ChartImage.jpg" href="" class="btn btn-dark">
+                <!-- Download Icon -->
+                <i class="fa fa-download"></i> DOWNLOAD
+            </a>
         </div>
-        <canvas id="myChart" width="400" height="400"></canvas>
-        <a id="download" download="ChartImage.jpg" href="" class="btn btn-primary float-right bg-flat-color-1">
-            <!-- Download Icon -->
-            <i class="fa fa-download"></i> DOWNLOAD
-        </a>
-    </div>   
 </body>
 </html>

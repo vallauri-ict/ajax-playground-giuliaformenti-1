@@ -6,20 +6,42 @@
     <title>Git Login App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="upload.css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="upload.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
-   <div>
-     <input id="files" type="file" name="files[]" multiple/>
-     <button id="upload">Upload</button>
-     <div id="progress-wrp">
-        <div class="progress-bar"></div>
-        <div class="status">0%</div>
+    <style>
+        #wrapper{
+            width: 400px;
+            height: 400px;
+            margin: 100px;
+            margin-left: 560px;
+            padding-top: 30px;
+            padding-left: 5px;
+        }
+        h1{
+            text-align: center;
+            margin-top: 10px;
+        }
+        #progress-wrp{
+            margin-top: 70px;
+        }
+    </style>
+<body class="bg-dark text-white">
+    <h1> SELEZIONA UN FILE </h1>
+    <div id = "wrapper" class = "bg-secondary rounded">
+        <div>
+            <input multiple id="files" type="file" name="files[]" accept="image/gif, image/jpeg"/>
+            <button id="upload" class="btn btn-dark">Upload</button>
+            <div id="progress-wrp">
+                <div class="progress-bar"></div>
+                <div class="status">0%</div>
+            </div>
+       </div> 
+       <div id="result">
+
+       </div>
     </div>
-   </div> 
-   <div id="result">
-       
-   </div>
 </body>
 </html>

@@ -1,24 +1,42 @@
 *{
-    font-family: Arial;
+    font-family: AR JULIAN,Impact,Rockwell Extra Bold,   sans-serif;
+    /*background-color: #343A40;
+    color: white;*/
+    font-size: 14pt;
 }
 html,
 body {
-  background-color: dodgerblue;
+    /*background-color: #343A40;
+    color: white;*/
+    
 }
 
-#wrapper {
-  width: 900px;
-  border: 1px solid black;
-  margin: 30px auto;
-  background-color: white;
-  box-shadow: 0 0 20px 7px black;
-  text-align: center;
+header{
+    background-color: #1f2226;
+    color: white;
+    margin-top: 0px;
+    height: 80px;
+    font-size: 22pt;
+    line-height: 80px;
+    text-align: center;
+}
+
+#wrapper{
+/*    background-color: #343A40;*/
+    width: 900px;
+    border: 1px solid black;
+    margin: 30px auto;
+    /*background-color: white;*/
+    box-shadow: 0 0 20px 7px black;
+    text-align: center;
 }
 
 table {
   table-layout: fixed;
   width: 100%;
   /* margin: 10px; */
+    /*border-color: white;
+    background-color: #343A40;*/
 }
 
 table,
@@ -47,4 +65,16 @@ div:nth-of-type(1){
 }
 canvas{
     border: 1px solid black;
+}
+#grafico{
+    width: 900px;
+    border: 1px solid black;
+    margin: 30px auto;
+    background-color: white;
+    box-shadow: 0 0 20px 7px black;
+    text-align: center;
+}
+#selectSector{
+    height: 30px;
+    
 }
