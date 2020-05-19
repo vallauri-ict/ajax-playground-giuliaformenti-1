@@ -12,6 +12,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
     <style>
+        *{
+            font-family: AR JULIAN, Impact, Rockwell Extra Bold, sans-serif;
+        }
         #wrapper{
             width: 400px;
             height: 400px;
@@ -32,8 +35,8 @@
     <h1> SELEZIONA UN FILE </h1>
     <div id = "wrapper" class = "bg-secondary rounded">
         <div>
-            <input multiple id="files" type="file" name="files[]" accept="image/gif, image/jpeg"/>
-            <button id="upload" class="btn btn-dark">Upload</button>
+            <input id="files" type="file" name="files[]" multiple/>
+            <button id="upload">Upload</button>
             <div id="progress-wrp">
                 <div class="progress-bar"></div>
                 <div class="status">0%</div>

@@ -113,11 +113,11 @@ $(document).ready(function(){
 
     $("#upload").on("click", function (e) 
     {
-        let file = $("#inputGroupFile01")/*[0].files[0]*/;
+        let file = $("#files")[0].files[0];
         let upload = new Upload(file);
-    
+
         // maby check size or type here with upload.getSize() and upload.getType()
-    
+
         // execute upload
         upload.doUpload();
     });
