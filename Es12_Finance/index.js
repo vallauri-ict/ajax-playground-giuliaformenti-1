@@ -36,7 +36,7 @@ $(document).ready(function(){
         {
             _tbody = $("<tbody id='myTBody'>").appendTo(_table);
             isPresent = true;
-            CreateRows(0);
+            createRows(0);
             //_table.css("border-color", "red");
             getGlobalQuotes(this.value, 0);
             nCalls++;
@@ -191,7 +191,7 @@ function getSymbolSearch(symbol){
         {
             //console.log(data["bestMatches"][i]["1. symbol"]);
             
-            CreateRows(i);
+            createRows(i);
             let symb = data["bestMatches"][i]["1. symbol"];
             getGlobalQuotes(symb, i);
             nCalls++;
@@ -199,7 +199,7 @@ function getSymbolSearch(symbol){
     });
 }
 
-function CreateRows(n) {
+function createRows(n) {
     let _tr = $("<tr>").appendTo(_tbody);
     $("<td id = symbol" + n + ">").appendTo(_tr);
     $("<td id = lastTrade" + n + ">").appendTo(_tr);
