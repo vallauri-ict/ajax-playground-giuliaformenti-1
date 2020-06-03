@@ -1,0 +1,139 @@
+<!DOCTYPE html> <!-- documento html5 jquery bootstrap nostri-->
+<html lang="it">
+<head>
+     <meta charset="UTF-8" />
+     <title> FAKE FOOT LOCKER </title>
+	 <!--<link rel="stylesheet" href="index.css">-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"> </script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js" charset="utf8"></script>
+    <script type="application/javascript" src="elencoRicerca.js"></script>
+    <script src="libreria.js"></script>
+    <style>
+        #categorie{
+            margin-bottom: 30px;
+        }
+	</style>
+</head>
+<body>
+    <div id="wrapper" class="container-fluid">
+        <!--<h2 align="center" style="margin-top: 30px"> Risultati: </h2>
+        <table border=1 align='center'>
+            <thead>
+                <tr>
+                    <th> cModello </th>
+                    <th> nomeModello </th>
+                    <th> cMarca </th>
+                    <th> genere </th>
+                    <th> prezzo </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>-->
+        <div class="row" style="margin-top:2%">
+        <div class="col-sm-1"></div>
+        <div id="main" class="col-sm-10">
+            <!-- Barra di navigazione -->
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">		
+                <a class="navbar-brand" href="#">
+                    <h1 id="titolo"> SNEAKERS SHOP </h1>
+                </a>
+                <!-- Pulsanti a destra -->
+                <ul class="navbar-nav ml-auto"> 
+                    <li id="utente" class="nav-item">
+                        <span class="input-group-text bg-dark"> 
+                            <i class="fas fa-sign-in-alt"></i>
+                            <a class="nav-link" href="#">Registrati/Login</a>
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="input-group-text bg-dark"> 
+                            <i class="fas fa-shopping-cart"></i>
+                            <a class="nav-link" href="#" id="btnLogout">Carrello</a>
+                        </span>
+                </ul>
+            </nav>	
+            <br>
+
+            <!-- ricerca -->
+            <!--<div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8" id="divFiliali">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span>
+                                    <button type="button" class="btn btn-light">🔎</button>
+                                </span>
+                            </div>
+                            <input type="text" id="txtSearch" class="form-control" placeholder="Inserisci qui la tua ricerca" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
+            </div>-->
+            <div class="row">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-8" id="divFiliali">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span>
+                                <button id="search" type="button" class="btn btn-light">
+                                    <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                    </svg>  
+                                </button>
+                            </span>
+                        </div>
+                        <input id="txtSearch" type="text" class="form-control" placeholder="Inserisci qui la tua ricerca" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+				</div>
+				<div class="col-sm-2"></div>
+            </div>
+
+            <!-- Lista Categorie -->
+            <ul id="categorie" class="list-group list-group-horizontal" style="text-align: center">
+                <li class="list-group-item flex-fill" value="uomo" id="uomo"><b> UOMO </b></li>
+            <li class="list-group-item flex-fill" value="donna" id="donna"><b> DONNA </b></li>
+            <li class="list-group-item flex-fill" value="bambino" id="bambino"><b> BAMBINO </b></li>
+            <li class="list-group-item flex-fill" value="brands" id="brands"><b> BRANDS </b></li>
+            </ul>
+            <!--<form>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" id="uomo" class="btn btn-secondary"> UOMO </button>
+                    <button type="button" id="donna" class="btn btn-secondary"> DONNA </button>
+                    <button type="button" id="bambino" class="btn btn-secondary"> BAMBINO </button>
+                    <button type="button" id="brands" class="btn btn-secondary"> BRANDS </button>
+                </div>
+            </form>-->
+
+
+
+
+            <!-- Elenco Movimenti -->
+            <!--<div class="table-responsive" id="divMovimenti">
+                <table class="table table-hover">
+                    <thead class="bg-info">
+                        <tr>
+                            <th>ID</th>
+                            <th>Descrizione</th>
+                            <th>Data</th>
+                            <th>Importo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>-->
+
+
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    </div>
+</body>
+</html>
