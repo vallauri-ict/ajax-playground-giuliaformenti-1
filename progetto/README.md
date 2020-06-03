@@ -1,4 +1,4 @@
-#Progetto Giulia Formenti 4B INF
+# Progetto Giulia Formenti 4B INF
 
 Questo progetto simula un sito di vendita di sneakers.
 Ogni pagina è presenta il titolo, che riporta sempre alla pagina principale, il tasto Registrati/Login per effettuare la registrazione o
